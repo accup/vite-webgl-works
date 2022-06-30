@@ -5,7 +5,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc --noEmit && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "lint": "npm run lint:format",
+    "lint:format": "prettier --check --ignore-path ./.gitignore '**/*.{html,ts,css,vue,json,yml}' '!**/package{,-lock}.json'",
+    "fix": "npm run fix:format",
+    "fix:format": "prettier --write --ignore-path ./.gitignore '**/*.{html,ts,css,vue,json,yml}' '!**/package{,-lock}.json'"
   },
   "dependencies": {
     "pixi.js": "^6.4.2",
