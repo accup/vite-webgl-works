@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted } from "vue";
-import * as PIXI from "pixi.js";
+import { ref, onMounted } from 'vue';
+import * as PIXI from 'pixi.js';
 
 const props = defineProps<{
-  vert?: string,
-  frag?: string,
+  vert?: string;
+  frag?: string;
 }>();
 
 const canvas = ref<HTMLCanvasElement>();

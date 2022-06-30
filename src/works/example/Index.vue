@@ -4,5 +4,5 @@ import frag from './shader.frag?raw';
 </script>
 
 <template>
-    <Pixi :frag="frag" />
+  <Pixi :frag="frag" />
 </template>
