@@ -9,7 +9,7 @@ const props = defineProps<{
 
 const canvas = ref<HTMLCanvasElement>();
 
-let app: PIXI.Application | null = null;
+let app: PIXI.Application;
 onMounted(() => {
   app = new PIXI.Application({ view: canvas.value, resizeTo: window });
 
@@ -44,7 +44,7 @@ onMounted(() => {
   });
 });
 onUnmounted(() => {
-  app?.destroy();
+  app.destroy();
 });
 </script>
 
