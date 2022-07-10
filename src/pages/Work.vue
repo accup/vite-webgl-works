@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { defineAsyncComponent } from 'vue';
-import { useRoute, onBeforeRouteUpdate } from 'vue-router';
-import type { RouteLocationNormalized } from 'vue-router';
+import { useRoute } from 'vue-router';
+
+const works = import.meta.glob('../works/**/Index.vue');
 
 function makeWorkModulePath(names: string | string[]) {
   let workPathPart;
@@ -15,7 +16,7 @@ function makeWorkModulePath(names: string | string[]) {
 
 const route = useRoute();
 const Work = defineAsyncComponent(
-  () => import(makeWorkModulePath(route.params.names))
+  works[makeWorkModulePath(route.params.names)]
 );
 </script>
 
