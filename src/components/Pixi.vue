@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
 import * as PIXI from 'pixi.js';
 
 const props = defineProps<{
@@ -9,8 +9,9 @@ const props = defineProps<{
 
 const canvas = ref<HTMLCanvasElement>();
 
+let app: PIXI.Application;
 onMounted(() => {
-  const app = new PIXI.Application({ view: canvas.value, resizeTo: window });
+  app = new PIXI.Application({ view: canvas.value, resizeTo: window });
 
   const filter = new PIXI.Filter(props.vert, props.frag, {
     uTime: 0.0,
@@ -41,6 +42,9 @@ onMounted(() => {
     );
     totalTime += delta / 60;
   });
+});
+onUnmounted(() => {
+  app.destroy();
 });
 </script>
 
